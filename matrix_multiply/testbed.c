@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
   matrix* B;
   matrix* C;
 
-  const int kMatrixSize = 4;
+  const int kMatrixSize = 1000;
 
 
   // Parse command line arguments
@@ -85,7 +85,7 @@ int main(int argc, char** argv) {
 
   fprintf(stderr, "Setup\n");
 
-  A = make_matrix(kMatrixSize, kMatrixSize+1);
+  A = make_matrix(kMatrixSize, kMatrixSize);
   B = make_matrix(kMatrixSize, kMatrixSize);
   C = make_matrix(kMatrixSize, kMatrixSize);
 
@@ -141,6 +141,11 @@ int main(int argc, char** argv) {
     float elapsedf = ktiming_diff_sec(&time1, &time2);
     printf("Elapsed execution time: %f sec\n", elapsedf);
   }
+
+  // free matrices after use
+  free_matrix(A);
+  free_matrix(B);
+  free_matrix(C);
 
   return 0;
 }

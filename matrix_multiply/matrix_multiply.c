@@ -20,7 +20,7 @@
  * IN THE SOFTWARE.
  **/
 
-// #include <assert.h>
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -74,13 +74,20 @@ void print_matrix(const matrix* m) {
 
 // Multiply matrix A*B, store result in C.
 int matrix_multiply_run(const matrix* A, const matrix* B, matrix* C) {
-  // assert(A->cols == B->rows);
-  // assert(A->rows == C->rows);
-  // assert(B->cols == C->cols);
+  assert(A->cols == B->rows);
+  assert(A->rows == C->rows);
+  assert(B->cols == C->cols);
+
+  //initialize C
+  for (int i = 0; i < C->rows; i++) {
+    for (int j = 0; j < C->cols; j++) {
+      C->values[i][j] = 0;
+    }
+  }
 
   for (int i = 0; i < A->rows; i++) {
-    for (int j = 0; j < B->cols; j++) {
-      for (int k = 0; k < A->cols; k++) {
+    for (int k = 0; k < A->cols; k++) {
+      for (int j = 0; j < B->cols; j++) {
         C->values[i][j] += A->values[i][k] * B->values[k][j];
       }
     }

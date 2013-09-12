@@ -31,7 +31,7 @@ CFLAGS_DEBUG := -g -DDEBUG -O0
 # In the release version, we ask for many optimizations; -O3 sets the
 # optimization level to three.  -DNDEBUG defines the NDEBUG macro,
 # which disables assertion checks.
-CFLAGS_RELEASE := -O1 -DNDEBUG
+CFLAGS_RELEASE := -O3 -DNDEBUG
 
 # These flags are applied when linking object files together into your binary.
 # If you need to link against libraries, add the appropriate flags here.  By
