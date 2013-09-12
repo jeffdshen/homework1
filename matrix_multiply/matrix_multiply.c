@@ -78,7 +78,7 @@ int matrix_multiply_run(const matrix* A, const matrix* B, matrix* C) {
   assert(A->rows == C->rows);
   assert(B->cols == C->cols);
 
-  //initialize C
+  // initialize C
   for (int i = 0; i < C->rows; i++) {
     for (int j = 0; j < C->cols; j++) {
       C->values[i][j] = 0;
